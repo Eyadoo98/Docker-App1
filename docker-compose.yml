@@ -1,0 +1,9 @@
+version: "3" #version of docker-compose
+services: #all service that need in application like database redis , php anything
+  node-app:   #any name
+    container_name: express-node-app #name of container
+    build: . # . mean Dockerfile
+    volumes:
+      - ./src:/app/src:ro # This is volumes for hot reload when change on my machine change container file with mode ro read only to not make delete files or update from container
+    ports:
+      - "4000:4000"
